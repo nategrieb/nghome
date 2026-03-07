@@ -1,30 +1,29 @@
 import Link from "next/link";
 
-import { getSession } from "@/lib/auth";
-
 export default async function SettingsPage() {
-  const session = await getSession();
+  // Auth disabled for simplicity
+  // const session = await getSession();
 
-  if (!session) {
-    return (
-      <section className="mx-auto w-full max-w-2xl border border-zinc-300/50 bg-white/75 p-6 md:p-8">
-        <h1 className="text-xl font-semibold tracking-tight text-zinc-900">Settings</h1>
-        <p className="mt-3 text-sm leading-7 text-zinc-600">
-          Sign in to manage profile and preference defaults for future SSO flows.
-        </p>
-        <Link
-          href="/login?next=/settings"
-          className="group relative mt-6 inline-flex h-10 items-center justify-center rounded-none border border-transparent px-3 text-xs font-semibold uppercase tracking-[0.16em] text-zinc-500 transition-all duration-200 hover:border-zinc-300/80 hover:bg-white/70 hover:text-zinc-900 focus-visible:border-zinc-300/80 focus-visible:bg-white/70 focus-visible:text-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-300 focus-visible:ring-offset-2"
-        >
-          Login to Continue
-          <span
-            aria-hidden="true"
-            className="absolute bottom-1.5 left-2 right-2 h-px origin-center scale-x-0 bg-zinc-500/70 transition-transform duration-300 group-hover:scale-x-100 group-focus-visible:scale-x-100"
-          />
-        </Link>
-      </section>
-    );
-  }
+  // if (!session) {
+  //   return (
+  //     <section className="mx-auto w-full max-w-2xl border border-zinc-300/50 bg-white/75 p-6 md:p-8">
+  //       <h1 className="text-xl font-semibold tracking-tight text-zinc-900">Settings</h1>
+  //       <p className="mt-3 text-sm leading-7 text-zinc-600">
+  //         Sign in to manage profile and preference defaults for future SSO flows.
+  //       </p>
+  //       <Link
+  //         href="/login?next=/settings"
+  //         className="group relative mt-6 inline-flex h-10 items-center justify-center rounded-none border border-transparent px-3 text-xs font-semibold uppercase tracking-[0.16em] text-zinc-500 transition-all duration-200 hover:border-zinc-300/80 hover:bg-white/70 hover:text-zinc-900 focus-visible:border-zinc-300/80 focus-visible:bg-white/70 focus-visible:text-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-300 focus-visible:ring-offset-2"
+  //       >
+  //         Login to Continue
+  //         <span
+  //           aria-hidden="true"
+  //           className="absolute bottom-1.5 left-2 right-2 h-px origin-center scale-x-0 bg-zinc-500/70 transition-transform duration-300 group-hover:scale-x-100 group-focus-visible:scale-x-100"
+  //         />
+  //       </Link>
+  //     </section>
+  //   );
+  // }
 
   return (
     <section className="mx-auto w-full max-w-2xl border border-zinc-300/50 bg-white/75 p-6 md:p-8">
@@ -38,7 +37,7 @@ export default async function SettingsPage() {
           Display Name
           <input
             id="display-name"
-            defaultValue={session.user.name}
+            defaultValue="Operator"
             className="h-11 w-full rounded-md border border-zinc-300 bg-white px-3 text-sm normal-case tracking-normal text-zinc-900 outline-none transition-colors duration-150 focus-visible:border-zinc-500 focus-visible:ring-2 focus-visible:ring-zinc-300 focus-visible:ring-offset-2"
           />
         </label>
@@ -53,7 +52,7 @@ export default async function SettingsPage() {
             <option value="America/New_York">America/New_York</option>
             <option value="America/Chicago">America/Chicago</option>
             <option value="America/Denver">America/Denver</option>
-            <option value="America/Los_Angeles">America/Los_Angeles</option>
+            <option value="America/Los Angeles">America/Los Angeles</option>
           </select>
         </label>
 

@@ -6,11 +6,11 @@ import { getSession, isAuthRequired } from "@/lib/auth";
 import { apps } from "@/lib/apps";
 
 export default async function Home() {
-  const session = await getSession();
-
-  if (isAuthRequired() && !session) {
-    redirect("/login?next=/");
-  }
+  // Auth disabled for simplicity
+  // const session = await getSession();
+  // if (isAuthRequired() && !session) {
+  //   redirect("/login?next=/");
+  // }
 
   return (
     <div className="space-y-10">
@@ -31,7 +31,7 @@ export default async function Home() {
             Apps
           </h2>
           <p className="text-xs uppercase tracking-[0.14em] text-zinc-500">
-            {session ? `Signed in as ${session.user.name}` : "Guest session"}
+            Guest session
           </p>
         </div>
 
