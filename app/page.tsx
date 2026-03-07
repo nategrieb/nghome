@@ -1,94 +1,50 @@
-import Link from "next/link";
-import { redirect } from "next/navigation";
+import { buildLaunchUrl, apps } from "@/lib/apps";
+import { BrandIcon } from "@/components/BrandIcon";
 
-import { AppCard } from "@/components/AppCard";
-import { getSession, isAuthRequired } from "@/lib/auth";
-import { apps } from "@/lib/apps";
-
-export default async function Home() {
-  // Auth disabled for simplicity
-  // const session = await getSession();
-  // if (isAuthRequired() && !session) {
-  //   redirect("/login?next=/");
-  // }
-
+export default function Home() {
   return (
-    <div className="space-y-10">
-      <section className="space-y-4 border-b border-zinc-300/50 pb-8">
-        <p className="text-xs font-medium uppercase tracking-[0.18em] text-zinc-500">Launcher</p>
-        <h1 className="max-w-4xl text-2xl font-semibold tracking-tight text-zinc-900 md:text-4xl">
-          One calm destination for app launch, identity state, and next action.
-        </h1>
-        <p className="max-w-2xl text-sm leading-7 text-zinc-600 md:text-base">
-          Command Center gives you a single, minimal home for THE MENU and NATESTEGRAM. Open each app with one click,
-          keep session state visible, and stay ready for token-based SSO handoff.
-        </p>
-      </section>
+    <section className="mx-auto flex w-full max-w-3xl flex-col py-4 md:py-10">
+      {apps.length > 0 ? (
+        <div className="grid grid-cols-1 gap-4">
+          {apps.map((app) => {
+            const launchUrl = buildLaunchUrl(app);
+            const isConfigured = Boolean(launchUrl);
 
-      <section aria-labelledby="apps-heading" className="space-y-4">
-        <div className="flex items-center justify-between gap-3">
-          <h2 id="apps-heading" className="text-sm font-bold uppercase tracking-[0.2em] text-zinc-900">
-            Apps
-          </h2>
-          <p className="text-xs uppercase tracking-[0.14em] text-zinc-500">
-            Guest session
-          </p>
+            return isConfigured ? (
+              <a
+                key={app.key}
+                href={launchUrl}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="group relative flex min-h-28 items-center justify-center gap-4 bg-transparent px-6 text-center text-2xl font-semibold uppercase tracking-[0.12em] text-zinc-900 transition-all duration-200 hover:bg-white/55 focus-visible:bg-white/55 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-300 focus-visible:ring-offset-2 md:text-3xl"
+              >
+                <BrandIcon shape={app.iconShape} className="h-8 w-8 md:h-10 md:w-10" />
+                {app.name}
+                <span
+                  aria-hidden="true"
+                  className="absolute bottom-4 left-1/2 h-px w-32 -translate-x-1/2 origin-center scale-x-0 bg-zinc-500/70 transition-transform duration-300 group-hover:scale-x-100 group-focus-visible:scale-x-100"
+                />
+              </a>
+            ) : (
+              <div
+                key={app.key}
+                className="flex min-h-28 flex-col items-center justify-center gap-2 border border-zinc-200 bg-zinc-50 px-6 text-center"
+                aria-disabled="true"
+              >
+                <p className="flex items-center gap-3 text-2xl font-semibold uppercase tracking-[0.12em] text-zinc-400 md:text-3xl">
+                  <BrandIcon shape={app.iconShape} className="h-8 w-8 md:h-10 md:w-10" />
+                  {app.name}
+                </p>
+                <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">Set app URL env var to enable</p>
+              </div>
+            );
+          })}
         </div>
-
-        {apps.length > 0 ? (
-          <div className="grid grid-cols-1 gap-px sm:grid-cols-2">
-            {apps.map((app, index) => (
-              <AppCard key={app.key} app={app} index={index} />
-            ))}
-          </div>
-        ) : (
-          <div className="border border-rose-200 bg-rose-50 p-5 text-sm text-rose-800">
-            No apps are configured yet. Add app entries in <code>lib/apps.ts</code>.
-          </div>
-        )}
-      </section>
-
-      <section className="grid grid-cols-1 gap-4 border-t border-zinc-300/50 pt-7 md:grid-cols-2">
-        <article className="border border-zinc-300/50 bg-white/70 p-5">
-          <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-900">Quick Links</h2>
-          <div className="mt-4 flex flex-wrap gap-2">
-            <Link
-              href="/settings"
-              className="group relative inline-flex h-10 items-center justify-center rounded-none border border-transparent px-3 text-xs font-semibold uppercase tracking-[0.16em] text-zinc-500 transition-all duration-200 hover:border-zinc-300/80 hover:bg-white/70 hover:text-zinc-900 focus-visible:border-zinc-300/80 focus-visible:bg-white/70 focus-visible:text-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-300 focus-visible:ring-offset-2"
-            >
-              Preferences
-              <span
-                aria-hidden="true"
-                className="absolute bottom-1.5 left-2 right-2 h-px origin-left scale-x-0 bg-zinc-500/70 transition-transform duration-300 group-hover:scale-x-100 group-focus-visible:scale-x-100"
-              />
-            </Link>
-            <a
-              href="/health"
-              className="group relative inline-flex h-10 items-center justify-center rounded-none border border-transparent px-3 text-xs font-semibold uppercase tracking-[0.16em] text-zinc-500 transition-all duration-200 hover:border-zinc-300/80 hover:bg-white/70 hover:text-zinc-900 focus-visible:border-zinc-300/80 focus-visible:bg-white/70 focus-visible:text-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-300 focus-visible:ring-offset-2"
-            >
-              Health
-              <span
-                aria-hidden="true"
-                className="absolute bottom-1.5 left-2 right-2 h-px origin-left scale-x-0 bg-zinc-500/70 transition-transform duration-300 group-hover:scale-x-100 group-focus-visible:scale-x-100"
-              />
-            </a>
-          </div>
-        </article>
-
-        <article className="border border-zinc-300/50 bg-white/70 p-5">
-          <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-900">Recent Activity</h2>
-          <ul className="mt-4 space-y-3 text-sm text-zinc-600">
-            <li className="flex items-center justify-between border-b border-zinc-200 pb-2">
-              <span>Checked command center health</span>
-              <span className="text-xs uppercase tracking-[0.14em] text-zinc-400">Now</span>
-            </li>
-            <li className="flex items-center justify-between border-b border-zinc-200 pb-2">
-              <span>Prepared SSO token handoff contract</span>
-              <span className="text-xs uppercase tracking-[0.14em] text-zinc-400">Pending</span>
-            </li>
-          </ul>
-        </article>
-      </section>
-    </div>
+      ) : (
+        <div className="border border-rose-200 bg-rose-50 p-5 text-center text-sm text-rose-800">
+          No apps are configured yet. Add entries in <code>lib/apps.ts</code>.
+        </div>
+      )}
+    </section>
   );
 }

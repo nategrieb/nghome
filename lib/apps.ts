@@ -34,7 +34,7 @@ function sanitizeExternalUrl(value?: string): string | null {
 export const apps: AppDefinition[] = [
   {
     key: "menu",
-    name: "THE MENU",
+    name: "MENU",
     description: "Launch your command stream, workflows, and operational tools.",
     iconShape: "triangle",
     iconLabel: "THE MENU brand mark",
@@ -42,7 +42,7 @@ export const apps: AppDefinition[] = [
   },
   {
     key: "natestagram",
-    name: "NATESTEGRAM",
+    name: "PHOTOS",
     description: "Open your editorial photo surface and timeline experience.",
     iconShape: "circle",
     iconLabel: "NATESTEGRAM brand mark",

@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 export default async function SettingsPage() {
   // Auth disabled for simplicity
   // const session = await getSession();

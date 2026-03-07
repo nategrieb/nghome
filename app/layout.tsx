@@ -14,22 +14,22 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nategrieb.com"),
-  title: "○ NATE COMMAND CENTER",
-  description: "Minimal launcher and SSO-ready home for your apps.",
+  title: "NATE GRIEB",
+  description: "App launcher for Nate Grieb sites.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     url: "https://nategrieb.com",
-    siteName: "NATE Command Center",
-    title: "○ NATE COMMAND CENTER",
-    description: "Minimal launcher and SSO-ready home for your apps.",
+    siteName: "NATE GRIEB",
+    title: "NATE GRIEB",
+    description: "App launcher for Nate Grieb sites.",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "○ NATE COMMAND CENTER",
-    description: "Minimal launcher and SSO-ready home for your apps.",
+    title: "NATE GRIEB",
+    description: "App launcher for Nate Grieb sites.",
   },
   icons: {
     icon: "/icon.svg",
@@ -68,12 +68,12 @@ export default async function RootLayout({
                   href="/"
                   className="group inline-flex items-center gap-3 rounded-none border border-transparent px-1 py-1 hover:border-zinc-300/80 focus-visible:border-zinc-300/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-300 focus-visible:ring-offset-2"
                 >
-                  <span className="flex items-center gap-2" aria-hidden="true">
-                    <BrandIcon shape="triangle" className="h-5 w-5" />
-                    <BrandIcon shape="circle" className="h-5 w-5" />
+                  <span className="relative inline-flex h-5 w-5 items-center justify-center" aria-hidden="true">
+                    <BrandIcon shape="circle" className="absolute h-5 w-5" />
+                    <BrandIcon shape="triangle" className="absolute h-3.5 w-3.5" />
                   </span>
                   <span className="text-xs font-bold tracking-[0.22em] text-zinc-900 md:text-sm">
-                    NATE COMMAND CENTER
+                    NATE GRIEB
                   </span>
                 </Link>
 
@@ -125,7 +125,7 @@ export default async function RootLayout({
 
             <footer className="relative z-10 border-t border-zinc-300/40 bg-white/65 py-4">
               <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 text-xs tracking-[0.12em] text-zinc-500 uppercase md:px-8">
-                <p>Calm launcher surface</p>
+                <p>Nate Grieb</p>
                 <p>{session ? `Signed in as ${session.user.name}` : "Guest mode"}</p>
               </div>
             </footer>
