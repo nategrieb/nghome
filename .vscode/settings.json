@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^command -v vercel && vercel --version$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
