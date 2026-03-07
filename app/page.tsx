@@ -8,9 +8,23 @@ export default function Home() {
         <div className="grid grid-cols-1 gap-4">
           {apps.map((app) => {
             const launchUrl = buildLaunchUrl(app);
-            const isConfigured = Boolean(launchUrl);
+            if (!launchUrl) {
+              return (
+                <div
+                  key={app.key}
+                  className="flex min-h-28 flex-col items-center justify-center gap-2 border border-zinc-200 bg-zinc-50 px-6 text-center"
+                  aria-disabled="true"
+                >
+                  <p className="flex items-center gap-3 text-2xl font-semibold uppercase tracking-[0.12em] text-zinc-400 md:text-3xl">
+                    <BrandIcon shape={app.iconShape} className="h-8 w-8 md:h-10 md:w-10" />
+                    {app.name}
+                  </p>
+                  <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">Set app URL env var to enable</p>
+                </div>
+              );
+            }
 
-            return isConfigured ? (
+            return (
               <a
                 key={app.key}
                 href={launchUrl}
@@ -25,18 +39,6 @@ export default function Home() {
                   className="absolute bottom-4 left-1/2 h-px w-32 -translate-x-1/2 origin-center scale-x-0 bg-zinc-500/70 transition-transform duration-300 group-hover:scale-x-100 group-focus-visible:scale-x-100"
                 />
               </a>
-            ) : (
-              <div
-                key={app.key}
-                className="flex min-h-28 flex-col items-center justify-center gap-2 border border-zinc-200 bg-zinc-50 px-6 text-center"
-                aria-disabled="true"
-              >
-                <p className="flex items-center gap-3 text-2xl font-semibold uppercase tracking-[0.12em] text-zinc-400 md:text-3xl">
-                  <BrandIcon shape={app.iconShape} className="h-8 w-8 md:h-10 md:w-10" />
-                  {app.name}
-                </p>
-                <p className="text-xs uppercase tracking-[0.16em] text-zinc-500">Set app URL env var to enable</p>
-              </div>
             );
           })}
         </div>
