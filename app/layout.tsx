@@ -68,9 +68,10 @@ export default async function RootLayout({
                   href="/"
                   className="group inline-flex items-center gap-3 rounded-none border border-transparent px-1 py-1 hover:border-zinc-300/80 focus-visible:border-zinc-300/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-300 focus-visible:ring-offset-2"
                 >
-                  <span className="relative inline-flex h-5 w-5 items-center justify-center" aria-hidden="true">
-                    <BrandIcon shape="circle" className="absolute h-5 w-5" />
-                    <BrandIcon shape="triangle" className="absolute h-3.5 w-3.5" />
+                  {/* show both shapes side-by-side so the triangle doesn't disappear inside the circle */}
+                  <span className="flex items-center gap-1" aria-hidden="true">
+                    <BrandIcon shape="circle" className="h-5 w-5" />
+                    <BrandIcon shape="triangle" className="h-5 w-5" />
                   </span>
                   <span className="text-xs font-bold tracking-[0.22em] text-zinc-900 md:text-sm">
                     NATE GRIEB

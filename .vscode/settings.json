@@ -3,6 +3,10 @@
         "/^command -v vercel && vercel --version$/": {
             "approve": true,
             "matchCommandLine": true
+        },
+        "/^lsof -nP -iTCP:3000 -sTCP:LISTEN$/": {
+            "approve": true,
+            "matchCommandLine": true
         }
     }
 }

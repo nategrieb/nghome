@@ -3,7 +3,7 @@ import { BrandIcon } from "@/components/BrandIcon";
 
 export default function Home() {
   return (
-    <section className="mx-auto flex w-full max-w-3xl flex-col py-4 md:py-10">
+    <section className="relative left-1/2 flex w-screen -translate-x-1/2 flex-col py-4 md:py-10">
       {apps.length > 0 ? (
         <div className="grid grid-cols-1 gap-4">
           {apps.map((app) => {
