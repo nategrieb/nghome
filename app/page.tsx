@@ -28,8 +28,6 @@ export default function Home() {
               <a
                 key={app.key}
                 href={launchUrl}
-                target="_blank"
-                rel="noreferrer noopener"
                 className="group relative flex min-h-28 items-center justify-center gap-4 bg-transparent px-6 text-center text-2xl font-semibold uppercase tracking-[0.12em] text-zinc-900 transition-all duration-200 hover:bg-white/55 focus-visible:bg-white/55 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-300 focus-visible:ring-offset-2 md:text-3xl"
               >
                 <BrandIcon shape={app.iconShape} className="h-8 w-8 md:h-10 md:w-10" />
