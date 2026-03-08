@@ -28,13 +28,13 @@ export default function Home() {
               <a
                 key={app.key}
                 href={launchUrl}
-                className="group relative flex min-h-28 items-center justify-center gap-4 bg-transparent px-6 text-center text-2xl font-semibold uppercase tracking-[0.12em] text-zinc-900 transition-all duration-200 hover:bg-white/55 focus-visible:bg-white/55 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-300 focus-visible:ring-offset-2 md:text-3xl"
+                className="group relative flex min-h-28 items-center justify-center gap-4 bg-transparent px-6 text-center text-2xl font-semibold uppercase tracking-[0.12em] text-zinc-900 transition-all duration-200 hover:bg-white/55 active:bg-white/55 active:scale-95 focus-visible:bg-white/55 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-300 focus-visible:ring-offset-2 md:text-3xl"
               >
                 <BrandIcon shape={app.iconShape} className="h-8 w-8 md:h-10 md:w-10" />
                 {app.name}
                 <span
                   aria-hidden="true"
-                  className="absolute bottom-4 left-1/2 h-px w-32 -translate-x-1/2 origin-center scale-x-0 bg-zinc-500/70 transition-transform duration-300 group-hover:scale-x-100 group-focus-visible:scale-x-100"
+                  className="absolute bottom-4 left-1/2 h-px w-32 -translate-x-1/2 origin-center scale-x-0 bg-zinc-500/70 transition-transform duration-300 group-hover:scale-x-100 group-focus-visible:scale-x-100 group-active:scale-x-100"
                 />
               </a>
             );
