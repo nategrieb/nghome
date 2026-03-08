@@ -32,9 +32,9 @@ export const metadata: Metadata = {
     description: "App launcher for Nate Grieb sites.",
   },
   icons: {
-    icon: "/icon.svg",
-    shortcut: "/icon.svg",
-    apple: "/icon.svg",
+    icon: "/circle-triangle.svg",
+    shortcut: "/circle-triangle.svg",
+    apple: "/circle-triangle.svg",
   },
 };
 
