@@ -34,10 +34,10 @@ function sanitizeExternalUrl(value?: string): string | null {
 export const apps: AppDefinition[] = [
   {
     key: "menu",
-    name: "MENU",
+    name: "FOOD",
     description: "Launch your command stream, workflows, and operational tools.",
     iconShape: "triangle",
-    iconLabel: "THE MENU brand mark",
+    iconLabel: "THE FOOD brand mark",
     url: sanitizeExternalUrl(process.env.NEXT_PUBLIC_APP_URL_MENU),
   },
   {

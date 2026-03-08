@@ -41,7 +41,7 @@ npm run build
 	- `nategrieb.com` (primary)
 	- `www.nategrieb.com` (optional redirect target)
 3. Configure environment variables in Vercel:
-	- `NEXT_PUBLIC_APP_URL_MENU=https://food.nategrieb.com`
+\t- `NEXT_PUBLIC_APP_URL_MENU=https://food.nategrieb.com`  # points at the site for the FOOD app (previously labeled MENU)  # for the FOOD app (used to be MENU)
 	- `NEXT_PUBLIC_APP_URL_NATESTEGRAM=https://photos.nategrieb.com`
 	- `AUTH_REQUIRED=false` (or `true` when you want to enforce login)
 	- `AUTH_COOKIE_SECRET=<long-random-secret>`
