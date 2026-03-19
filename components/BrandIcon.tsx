@@ -26,6 +26,16 @@ export function BrandIcon({
     );
   }
 
+  if (shape === "square") {
+    return (
+      <span
+        className={`${sharedStyles} bg-gradient-to-br from-green-800 to-green-600 ${className ?? "h-8 w-8"}`}
+        aria-hidden={decorative}
+        aria-label={decorative ? undefined : label}
+      />
+    );
+  }
+
   return (
     <span
       className={`${sharedStyles} rounded-full bg-gradient-to-br from-green-800 to-green-600 ${className ?? "h-8 w-8"}`}

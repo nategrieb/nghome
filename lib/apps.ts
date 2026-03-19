@@ -1,7 +1,7 @@
-export type BrandShape = "triangle" | "circle";
+export type BrandShape = "triangle" | "circle" | "square";
 
 export type AppDefinition = {
-  key: "menu" | "natestagram";
+  key: "menu" | "natestagram" | "lift";
   name: string;
   description: string;
   iconShape: BrandShape;
@@ -47,6 +47,14 @@ export const apps: AppDefinition[] = [
     iconShape: "circle",
     iconLabel: "NATESTEGRAM brand mark",
     url: sanitizeExternalUrl(process.env.NEXT_PUBLIC_APP_URL_NATESTEGRAM),
+  },
+  {
+    key: "lift",
+    name: "Lift",
+    description: "Track your workouts and training progress.",
+    iconShape: "square",
+    iconLabel: "Lift brand mark",
+    url: sanitizeExternalUrl("https://lfd.nategrieb.com"),
   },
 ];
 
