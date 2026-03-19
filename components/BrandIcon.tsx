@@ -19,7 +19,7 @@ export function BrandIcon({
     return (
       <span
         className={`${sharedStyles} bg-gradient-to-br from-green-800 to-green-600 ${className ?? "h-8 w-8"}`}
-        style={{ clipPath: "polygon(50% 8%, 8% 92%, 92% 92%)" }}
+        style={{ clipPath: "polygon(50% 0%, 0% 100%, 100% 100%)" }}
         aria-hidden={decorative}
         aria-label={decorative ? undefined : label}
       />
