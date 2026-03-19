@@ -70,8 +70,8 @@ export default async function RootLayout({
                 >
                   {/* show both shapes side-by-side so the triangle doesn't disappear inside the circle */}
                   <span className="flex items-center gap-1" aria-hidden="true">
-                    <BrandIcon shape="circle" className="h-5 w-5" />
                     <BrandIcon shape="triangle" className="h-5 w-5" />
+                    <BrandIcon shape="circle" className="h-5 w-5" />
                     <BrandIcon shape="square" className="h-5 w-5" />
                   </span>
                   <span className="text-xs font-bold tracking-[0.22em] text-zinc-900 md:text-sm">
