@@ -5,7 +5,8 @@ Minimal launcher and lightweight SSO-ready home for your app ecosystem.
 ## Included Routes
 
 - `/` command center homepage with app cards
-- `/login` auth shell login page (Phase 1 cookie session)
+- `/login` Google sign-in through Supabase (shared with the other apps)
+- `/auth/callback` finishes the Google sign-in
 - `/settings` basic profile/preferences surface
 - `/health` JSON health endpoint
 
@@ -16,8 +17,8 @@ Copy `.env.example` to `.env.local` and set values:
 ```bash
 NEXT_PUBLIC_APP_URL_MENU=https://food.nategrieb.com
 NEXT_PUBLIC_APP_URL_NATESTEGRAM=https://photos.nategrieb.com
-AUTH_REQUIRED=false
-AUTH_COOKIE_SECRET=replace-with-long-random-string
+NEXT_PUBLIC_SUPABASE_URL=your-project-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-public-key
 ```
 
 ## Development
