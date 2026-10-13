@@ -30,7 +30,7 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
           </span>
           <div className="space-y-1.5">
             <h1 className="text-xl font-semibold tracking-tight text-zinc-900">Sign in</h1>
-            <p className="text-sm text-zinc-500">One login for all of Nate&apos;s apps.</p>
+            <p className="text-sm text-zinc-500">One login to rule them all.</p>
           </div>
         </div>
 
