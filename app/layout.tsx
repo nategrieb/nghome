@@ -127,7 +127,12 @@ export default async function RootLayout({
 
             <footer className="relative z-10 border-t border-zinc-300/40 bg-white/65 py-4">
               <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 text-xs tracking-[0.12em] text-zinc-500 uppercase md:px-8">
-                <p>Nate Grieb</p>
+                <div className="flex items-center gap-4">
+                  <p>Nate Grieb</p>
+                  <Link href="/privacy" className="underline-offset-4 hover:text-zinc-900 hover:underline">
+                    Privacy
+                  </Link>
+                </div>
                 <p>{session ? `Signed in as ${session.user.name}` : "Guest mode"}</p>
               </div>
             </footer>
