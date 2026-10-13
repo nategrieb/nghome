@@ -1,9 +1,15 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 import { authCookieOptions } from "./lib/auth-cookie";
+import { cleanupLegacyAuthCookies } from "./lib/legacy-cookie-cleanup";
 
 /** Keeps the Supabase auth cookie fresh so a signed-in visit stays signed in. */
 export async function proxy(request: NextRequest) {
+  const cleaned = cleanupLegacyAuthCookies(request);
+  if (cleaned) {
+    return cleaned;
+  }
+
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
