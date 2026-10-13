@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
+import { BrandIcon } from "@/components/BrandIcon";
 import { GoogleSignInButton } from "@/components/google-sign-in-button";
 import { getSession } from "@/lib/auth";
 
@@ -19,33 +20,37 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
   }
 
   return (
-    <section className="mx-auto w-full max-w-xl border border-zinc-300/50 bg-white/75 p-6 md:p-8">
-      <header className="space-y-3 border-b border-zinc-200 pb-5">
-        <p className="text-xs font-medium uppercase tracking-[0.18em] text-zinc-500">Sign in</p>
-        <h1 className="text-2xl font-semibold tracking-tight text-zinc-900">One login for every app</h1>
-        <p className="text-sm leading-7 text-zinc-600">
-          Sign in with Google to use the apps you have access to.
-        </p>
-      </header>
+    <section className="mx-auto w-full max-w-sm py-6 md:py-14">
+      <div className="border border-zinc-300/60 bg-white/85 px-6 py-8 shadow-[0_16px_36px_rgba(15,23,42,0.06)] md:px-8 md:py-10">
+        <div className="mb-8 flex flex-col items-center gap-4 text-center">
+          <span className="flex items-center gap-1.5" aria-hidden="true">
+            <BrandIcon shape="triangle" className="h-6 w-6" />
+            <BrandIcon shape="circle" className="h-6 w-6" />
+            <BrandIcon shape="square" className="h-6 w-6" />
+          </span>
+          <div className="space-y-1.5">
+            <h1 className="text-xl font-semibold tracking-tight text-zinc-900">Sign in</h1>
+            <p className="text-sm text-zinc-500">One login for all of Nate&apos;s apps.</p>
+          </div>
+        </div>
 
-      <div className="mt-6 space-y-4">
         {params.error === "google" ? (
-          <p className="border border-rose-200 bg-rose-50 px-3 py-2 text-sm text-rose-800">
+          <p className="mb-4 border border-rose-200 bg-rose-50 px-3 py-2 text-sm text-rose-800">
             Google sign-in didn&apos;t complete. Please try again.
           </p>
         ) : null}
 
         <GoogleSignInButton />
-
-        <div className="pt-2">
-          <Link
-            href="/"
-            className="text-xs uppercase tracking-[0.16em] text-zinc-500 underline-offset-4 hover:text-zinc-900 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-300"
-          >
-            Continue as guest
-          </Link>
-        </div>
       </div>
+
+      <p className="mt-5 text-center">
+        <Link
+          href="/"
+          className="text-xs text-zinc-400 transition-colors hover:text-zinc-700 focus-visible:text-zinc-700 focus-visible:underline"
+        >
+          Continue as guest
+        </Link>
+      </p>
     </section>
   );
 }
