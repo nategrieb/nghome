@@ -1,5 +1,6 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { authCookieOptions } from "./lib/auth-cookie";
 
 /** Keeps the Supabase auth cookie fresh so a signed-in visit stays signed in. */
 export async function proxy(request: NextRequest) {
@@ -13,6 +14,7 @@ export async function proxy(request: NextRequest) {
   let response = NextResponse.next({ request });
 
   const supabase = createServerClient(url, key, {
+    cookieOptions: authCookieOptions,
     cookies: {
       getAll: () => request.cookies.getAll(),
       setAll: (cookiesToSet) => {
